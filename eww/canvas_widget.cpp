@@ -33,16 +33,16 @@ string curl_GET(string base_url, string auth_header) {
         struct curl_slist *headers = nullptr;
         headers = curl_slist_append(headers, auth_header.c_str());
          
-	curl_easy_setopt(curl, CURLOPT_URL, base_url.c_str());
-	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+		curl_easy_setopt(curl, CURLOPT_URL, base_url.c_str());
+		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);	
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
 
-	res = curl_easy_perform(curl);
+		res = curl_easy_perform(curl);
 
-	curl_easy_cleanup(curl);
-	return result;
+		curl_easy_cleanup(curl);
+		return result;
     }
 
     return "Error: curl was not initialized properly";
@@ -55,14 +55,14 @@ map<string, string> latest_assignments(Json::Value assignment_data) {
 	const auto now = chrono::system_clock::now();
 	const time_t time_now = chrono::system_clock::to_time_t(now);
 
-        string due_date_str = assignment.get("due_at", "NO DUE DATE GIVEN").asString();
+    string due_date_str = assignment.get("due_at", "NO DUE DATE GIVEN").asString();
 	string assignment_name = assignment.get("name", "ASSIGNMENT UNNAMED").asString();
 
 	tm due_date{};
 	istringstream ss(due_date_str);
 
-    	const char* format = "%Y-%m-%dT%H:%M%S";
-    	ss >> get_time(&due_date, format);
+    const char* format = "%Y-%m-%dT%H:%M%S";
+    ss >> get_time(&due_date, format);
 
 	time_t due_at = timegm(&due_date);
 	tm* due_local = localtime_r(&due_at, &due_date);
