@@ -120,7 +120,7 @@ int main() {
 
 		++iter;
     }
-    cout << ")" << "\n" << flush;
+    //cout << ")" << "\n" << flush;
 
     return 0;
 }
