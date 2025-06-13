@@ -106,17 +106,21 @@ int main() {
 	int total_iter = 6;
 
 	// Generates the eww widget configuration
-    cout << R"x((box :orientation "vertical" :space-evenly false :spacing 5)x" << flush; 
-    cout << R"x((label :width 100 :text "Cultures of India Assignments: ")x" << ")" << flush;
+    cout << R"x((box :orientation "vertical" :space-evenly false :spacing 5)x" << "\n" << flush;
+    cout << "    " << R"x((label :width 100 :text "Cultures of India Assignments: ")x" << ")" << "\n" << flush;
+	cout << "\n" << flush;
     for (auto assignment: current_assignments) {
-		if (iter == total_iter)
-			break;
+		//if (iter == total_iter)
+		//	break;
 
-        cout << R"x((label :width 100 :text "Name - )x" << assignment.first << R"x("))x" << flush;
-        cout << R"((label :width 100 :text "Due At - )" << assignment.second << R"x("))x" << flush;
+        cout << "        " << R"x((label :width 100 :text "Name - )x" << assignment.first << R"x("))x" << "\n" << flush;
+        cout << "        " << R"((label :width 100 :text "Due At - )" << assignment.second << R"x("))x" << "\n" << flush;
+
+		cout << "\n" << flush;
+
 		++iter;
     }
-    cout << ")" << flush;
+    cout << ")" << "\n" << flush;
 
     return 0;
 }
