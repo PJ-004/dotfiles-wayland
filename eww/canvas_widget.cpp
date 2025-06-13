@@ -100,10 +100,9 @@ int main() {
     result = curl_GET(base_url, auth_header);
     bool is_parsed = reader -> parse(result.c_str(), result.c_str() + result.length(), &jsonData, &errs);
     map<string, string> current_assignments = latest_assignments(jsonData);
-   
-    // Just before your Yuck cout statements
+	/*
     std::string yuck_output_string = R"x((box :orientation "vertical" :space-evenly false :spacing 5)x" + std::string("\n");
-    yuck_output_string += "    " + std::string(R"x((label :width 100 :text "Logic Design Assignments: "))x") + "\n";
+    yuck_output_string += "    " + std::string(R"x((label :width 100 :text "Cultures of India Assignments: "))x") + "\n";
     for (auto const& [name, due_date] : current_assignments) {
         yuck_output_string += "        " + std::string(R"x((label :width 100 :text "Name - )x") + name + R"x("))x" + "\n";
         yuck_output_string += "        " + std::string(R"x((label :width 100 :text "Due At - )x") + due_date + R"x("))x" + "\n\n";
@@ -114,9 +113,9 @@ int main() {
     log_file << "Canvas script YUCK OUTPUT:\n" << yuck_output_string << std::endl;
     log_file << "Canvas script finished at: " << std::time(nullptr) << std::endl;
     log_file.close();
-
+	*/
     cout << R"x((box :orientation "vertical" :space-evenly false :spacing 5)x" << flush; 
-    cout << R"x((label :width 100 :text "Logic Design Assignments: ")x" << ")" << flush;
+    cout << R"x((label :width 100 :text "Cultures of India Assignments: ")x" << ")" << flush;
     for (auto assignment: current_assignments) {
         cout << R"x((label :width 100 :text "Name - )x" << assignment.first << R"x("))x" << flush;
         cout << R"((label :width 100 :text "Due At - )" << assignment.second << R"x("))x" << flush;
