@@ -76,16 +76,16 @@ map<string, string> latest_assignments(Json::Value assignment_data) {
 	    " " + to_string(due_local -> tm_hour) + ":" + to_string(due_local -> tm_min)
 	);
 	
-	if (due_at > time_now) {
-            assignments[assignment_name] = due_date_str;
-	}
+		if (due_at > time_now) {
+	            assignments[assignment_name] = due_date_str;
+		}
     }
 
     return assignments;
 }
 
 int main() {
-    string base_url = "https://ucsc.instructure.com/api/v1/courses/82418/assignments";
+    string base_url = "https://ucsc.instructure.com/api/v1/courses/84010/assignments";
     string auth_header = "Authorization: Bearer 9270~6CALRYUF9uCXJZBwYy8zELKrJwfy3cXvUhPCyJyDUUWe4ER6YuLLULPBcLeXwQam";
     string result;
 
